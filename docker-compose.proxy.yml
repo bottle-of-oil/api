@@ -1,0 +1,12 @@
+services:
+  reverse-proxy:
+    depends_on:
+      - api
+      - frontend
+    restart: always
+    build:
+      context: ../nginx
+      dockerfile: dev.Dockerfile
+    ports:
+      - "80:80"
+  
